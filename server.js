@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
+
     if (req.url === '/') {
         const filePath = path.join(__dirname, 'index.html');
         fs.readFile(filePath, (err, content) => {
@@ -21,6 +22,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 Not Found');
     }
+
 });
 
 const PORT = 3000;
